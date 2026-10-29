@@ -1,0 +1,322 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Para el Ingeniero Jefersson 💛</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      text-align: center;
+      background:
+        radial-gradient(ellipse at center,
+        #444a91 0%, #242758 60%, #151735 100%);
+    }
+
+    /* Fondo decorativo */
+    .background {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Tarjeta central */
+    .message {
+      position: relative;
+      z-index: 3;
+      width: min(560px, 72vw);
+      padding: 35px 30px;
+      border: 1px solid rgba(255, 230, 0, 0.65);
+      border-radius: 25px;
+      background: rgba(24, 27, 67, 0.88);
+      box-shadow: 0 0 35px rgba(255, 230, 0, 0.14);
+      backdrop-filter: blur(8px);
+    }
+
+    h1 {
+      margin: 0 0 20px;
+      color: #ffe600;
+      font-size: clamp(2rem, 4vw, 3rem);
+      text-shadow: 0 0 18px rgba(255, 230, 0, 0.35);
+    }
+
+    .message p {
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    .signature {
+      display: block;
+      margin-top: 20px;
+      color: #ffe600;
+      font-size: 1.1rem;
+    }
+
+    /* Fotos alrededor del mensaje */
+    .photo {
+      position: absolute;
+      z-index: 2;
+      width: clamp(100px, 15vw, 175px);
+      height: clamp(125px, 19vw, 215px);
+      padding: 8px 8px 25px;
+      background: #fffdf4;
+      border: 1px solid #e9dca5;
+      border-radius: 5px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      animation: appear 1.2s ease both;
+    }
+
+    .photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 2px;
+    }
+
+    .photo:hover {
+      z-index: 5;
+      transform: rotate(0deg) scale(1.12) !important;
+      box-shadow: 0 0 25px rgba(255, 230, 0, 0.5);
+    }
+
+    /* Posición individual de cada foto */
+    .photo1 {
+      top: 5%;
+      left: 8%;
+      transform: rotate(-10deg);
+    }
+
+    .photo2 {
+      top: 7%;
+      right: 9%;
+      transform: rotate(9deg);
+      animation-delay: 0.15s;
+    }
+
+    .photo3 {
+      top: 39%;
+      left: 3%;
+      transform: rotate(7deg);
+      animation-delay: 0.3s;
+    }
+
+    .photo4 {
+      top: 39%;
+      right: 3%;
+      transform: rotate(-8deg);
+      animation-delay: 0.45s;
+    }
+
+    .photo5 {
+      bottom: 4%;
+      left: 17%;
+      transform: rotate(-7deg);
+      animation-delay: 0.6s;
+    }
+
+    .photo6 {
+      bottom: 4%;
+      right: 17%;
+      transform: rotate(8deg);
+      animation-delay: 0.75s;
+    }
+
+    /* Corazones amarillos flotantes */
+    .heart {
+      position: absolute;
+      bottom: -35px;
+      width: 14px;
+      height: 14px;
+      background: #ffe600;
+      transform: rotate(45deg);
+      animation: float 9s linear infinite;
+      filter: drop-shadow(0 0 5px rgba(255, 230, 0, 0.5));
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      background: inherit;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -7px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -7px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 0;
+      }
+
+      15% {
+        opacity: 0.8;
+      }
+
+      100% {
+        transform: translateY(-115vh) rotate(405deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Ajustes para pantallas pequeñas */
+    @media (max-width: 600px) {
+      .message {
+        width: 72vw;
+        padding: 22px 15px;
+      }
+
+      .photo {
+        width: 83px;
+        height: 108px;
+        padding: 5px 5px 17px;
+      }
+
+      .photo1 { top: 5%; left: 4%; }
+      .photo2 { top: 5%; right: 4%; }
+      .photo3 { top: 35%; left: 1%; }
+      .photo4 { top: 35%; right: 1%; }
+      .photo5 { bottom: 3%; left: 7%; }
+      .photo6 { bottom: 3%; right: 7%; }
+
+      .message p {
+        line-height: 1.6;
+      }
+    }
+
+    @media (max-height: 650px) {
+      .photo1, .photo2 {
+        top: 2%;
+      }
+
+      .photo5, .photo6 {
+        bottom: 2%;
+      }
+
+      .photo3, .photo4 {
+        top: 35%;
+      }
+
+      .photo {
+        height: 115px;
+        width: 90px;
+      }
+
+      .message {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="background" id="background"></div>
+
+  <!-- FOTOS: cambia los nombres por tus archivos -->
+  <div class="photo photo1">
+    <img src="IMAGENES/AMIGOSE.jpeg" alt="Ingeniero Jefersson 1">
+  </div>
+
+  <div class="photo photo2">
+    <img src="IMAGENES/HOMBRES.jpeg" alt="Ingeniero Jefersson 2">
+  </div>
+
+  <div class="photo photo3">
+    <img src="IMAGENES/INGEIA.jpeg" alt="Ingeniero Jefersson 3">
+  </div>
+
+  <div class="photo photo4">
+    <img src="IMAGENES/INGEYYO.jpeg" alt="Ingeniero Jefersson 4">
+  </div>
+
+  <div class="photo photo5">
+    <img src="IMAGENES/MARTES.jpeg" alt="Ingeniero Jefersson 5">
+  </div>
+
+  <div class="photo photo6">
+    <img src="IMAGENES/POLLO.jpeg" alt="Ingeniero Jefersson 6">
+  </div>
+
+  <!-- MENSAJE CENTRAL -->
+  <main class="message">
+    <h1>Inge Jefersson</h1>
+
+    <p>
+      Muchas gracias por enseñarnos tanto, una inmensa gratitud por 
+      haberlo conocido a sumercé con un gran carisma y excelente ser humano.
+      Yo conocí a un ingeniero bien inteligente del cual aprendí muchas
+      cosas que me queda admiración y se convirtió en un ejemplo para mí.
+
+      <span class="signature">
+      
+        Te queremos Inge
+      </span>
+    </p>
+  </main>
+
+  <script>
+    // Crear corazones flotantes
+    const background = document.getElementById("background");
+    const totalHearts = 40;
+
+    for (let i = 0; i < totalHearts; i++) {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration =
+        (6 + Math.random() * 7) + "s";
+
+      heart.style.animationDelay =
+        (-Math.random() * 12) + "s";
+
+      heart.style.opacity = Math.random();
+
+      const size = 0.5 + Math.random() * 1.2;
+      heart.style.scale = size;
+
+      background.appendChild(heart);
+    }
+  </script>
+
+</body>
+</html>
